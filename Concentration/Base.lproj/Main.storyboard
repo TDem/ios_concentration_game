@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Concentration Theme Cgooser View Controller-->
+        <!--Concentration-->
         <scene sceneID="Xre-3y-YWp">
             <objects>
                 <viewController id="p4v-76-tcv" customClass="ConcentrationThemeCgooserViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,15 +48,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose theme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC2-Ym-Qzm">
+                                <rect key="frame" x="76.333333333333329" y="278.33333333333331" width="222.33333333333337" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XC2-Ym-Qzm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qCv-3y-lqW" secondAttribute="top" id="GWV-2Y-JjY"/>
+                            <constraint firstItem="UAz-AS-8K1" firstAttribute="top" secondItem="XC2-Ym-Qzm" secondAttribute="bottom" constant="16" id="N7X-SC-Ogr"/>
                             <constraint firstItem="UAz-AS-8K1" firstAttribute="centerY" secondItem="qCv-3y-lqW" secondAttribute="centerY" id="TIB-wH-Vxw"/>
+                            <constraint firstItem="XC2-Ym-Qzm" firstAttribute="centerX" secondItem="Z4c-Uv-YCr" secondAttribute="centerX" id="Zbd-dT-nfA"/>
                             <constraint firstItem="UAz-AS-8K1" firstAttribute="centerX" secondItem="qCv-3y-lqW" secondAttribute="centerX" id="kK9-yk-Fkr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qCv-3y-lqW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8JU-eP-4cE"/>
+                    <navigationItem key="navigationItem" title="Concentration" id="8JU-eP-4cE">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2UC-zD-Xdx"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="DvF-a5-vav"/>
                     </connections>
@@ -88,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-ro-FF0">
-                                <rect key="frame" x="143.33333333333337" y="662.33333333333337" width="88.666666666666657" height="95.666666666666629"/>
+                                <rect key="frame" x="143.33333333333334" y="662.33333333333337" width="88.666666666666657" height="95.666666666666629"/>
                                 <string key="text">Flips 
 0</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
