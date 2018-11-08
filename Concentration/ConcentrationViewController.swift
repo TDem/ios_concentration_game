@@ -26,6 +26,13 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    @IBAction func startNewGame(_ sender: Any) {
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        emojiChoces = theme ?? ""
+        emoji = [:]
+        updateViewFromModel()
+    }
+    
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key:Any] = [
             .strokeWidth: 5.0,
@@ -88,6 +95,12 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    var themeName: String?{
+        didSet{
+            self.title = themeName ?? "Game"
+        }
+    }
+    
     var theme: String?{
         didSet{
             emojiChoces = theme ?? ""
@@ -96,7 +109,7 @@ class ConcentrationViewController: UIViewController {
         }
     }
 //    private var emojiChoces = ["🎃","👻","👽","💀","🤡","😈","🤖","👾","☠️"]
-    private var emojiChoces = "" //= "🎃👻👽💀🤡😈🤖👾☠️"
+    private var emojiChoces = "🎃👻👽💀🤡😈🤖👾☠️" //default theme
     
     private var emoji = [Card: String]()
     

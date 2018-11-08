@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="-1699" y="516"/>
         </scene>
-        <!--Concentration View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConcentrationViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
@@ -404,6 +404,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="46l-Wu-0CH">
+                        <barButtonItem key="rightBarButtonItem" title="New game" id="Sbc-Tw-nFg">
+                            <connections>
+                                <action selector="startNewGame:" destination="BYZ-38-t0r" id="HZI-TZ-DSZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="flipCountLabel" destination="S77-ro-FF0" id="abE-iA-Cyx"/>
                         <outletCollection property="cardButtons" destination="XOu-kj-So8" collectionClass="NSMutableArray" id="nuN-pU-cFb"/>

@@ -35,10 +35,12 @@ class ConcentrationThemeCgooserViewController: UIViewController, UISplitViewCont
         if let cvc = splitViewDetailedConcentrationViewController{
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName]{
                 cvc.theme = theme
+                cvc.themeName = themeName
             }
         }else if let cvc = lastSeguedToConcentrationViewController{
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName]{
                 cvc.theme = theme
+                cvc.themeName = themeName
             }
             navigationController?.pushViewController(cvc, animated: true)
         }else{
@@ -60,6 +62,7 @@ class ConcentrationThemeCgooserViewController: UIViewController, UISplitViewCont
             if let themeName = (sender as? UIButton)?.currentTitle, let theme = themes[themeName]{
                 if let cvc = segue.destination as? ConcentrationViewController{
                     cvc.theme = theme
+                    cvc.themeName = themeName
                     lastSeguedToConcentrationViewController = cvc
                 }
             }
