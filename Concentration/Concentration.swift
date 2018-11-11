@@ -11,26 +11,11 @@ import Foundation
 struct Concentration{
     
     private(set) var cards = [Card]()
+    private(set) var flipCounter = 0
+    
     private var indexOfOneAndOnlyOneFaceUpCard: Int?{ // computed property, never stores in memery. it gets on fly
         get{
-            
-            return cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnlyOne //closures
-            
-//            let faceUpCardIndices = cards.indices.filter({ cards[$0].isFaceUp }) //closures
-//            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
-            
-//            var foundIndex: Int?
-//            for index in cards.indices{
-//                if cards[index].isFaceUp{
-//                    if foundIndex == nil{
-//                        foundIndex = index
-//                    }else{
-//                        return nil
-//                    }
-//                }
-//            }
-//            return foundIndex
-            
+            return cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnlyOne
         }set {
             for index in cards.indices{
                 cards[index].isFaceUp = (index == newValue) // put all cards face down, exept curent card
@@ -41,6 +26,10 @@ struct Concentration{
     mutating func chooseCard(at index: Int){
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched{
+            //increase flip counter
+            flipCounter += 1
+            
+            //if 2 card are faceUp
             if let matchIndex = indexOfOneAndOnlyOneFaceUpCard, matchIndex != index{
                 //check if cards match
                 if cards[matchIndex] == cards[index]{

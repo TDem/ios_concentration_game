@@ -67,10 +67,8 @@ class ConcentrationViewController: UIViewController {
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        flipCount += 1;
+
         if let cardNumber = visibleCardButtons.index(of: sender){
-//            print("cardNumber = \(cardNumber)")
-//            fliipCard(withEmoji: emojiChoces[cardNumber], on: sender)
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         }else{
@@ -92,6 +90,7 @@ class ConcentrationViewController: UIViewController {
                     button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 0.0431372549, green: 0.4156862745, blue: 1, alpha: 1)
                 }
             }
+            flipCount = game.flipCounter
         }
     }
     
