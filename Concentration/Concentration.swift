@@ -23,6 +23,11 @@ struct Concentration{
         }
     }
     
+    var isGameFinished: Bool{
+        print(cards.indices.filter({ cards[$0].isMatched}).count)
+        return cards.indices.filter({ cards[$0].isMatched}).count == cards.count  //check if all cards mathed
+    }
+    
     mutating func chooseCard(at index: Int){
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched{

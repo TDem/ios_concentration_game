@@ -26,7 +26,7 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    @IBAction func startNewGame(_ sender: Any) {
+    @IBAction func startNewGame(_ sender: Any? = nil) {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
         emojiChoces = theme ?? ""
         emoji = [:]
@@ -71,10 +71,29 @@ class ConcentrationViewController: UIViewController {
         if let cardNumber = visibleCardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
+            
+            if game.isGameFinished{
+                finishGame()
+            }
+            
         }else{
             print("card not found")
         }
         
+    }
+    
+    private func finishGame(){
+        let alertView = UIAlertController(
+            title: "You are awesome!",
+            message: "You win this game! Do you want to start again?",
+            preferredStyle: .alert)
+        
+        alertView.addAction(UIAlertAction(title: "Start new game", style: .default) { (alertAction) in
+            self.startNewGame()
+        })
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertView, animated: true, completion: nil)
     }
     
     private func updateViewFromModel(){
@@ -116,7 +135,7 @@ class ConcentrationViewController: UIViewController {
 //        print("identifier = \(card.identifier)")
         if emoji[card] == nil, emojiChoces.count > 0{
             let randomStingIndex = emojiChoces.index(emojiChoces.startIndex, offsetBy: emojiChoces.count.arc4random)
-            print("randomStingIndex = \(randomStingIndex)")
+//            print("randomStingIndex = \(randomStingIndex)")
             emoji[card] = String(emojiChoces.remove(at: randomStingIndex))
         }
 //        print("emoji : \(emoji)")
